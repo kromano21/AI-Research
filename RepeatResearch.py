@@ -1,6 +1,6 @@
 from openai import OpenAI
 
-client = OpenAI(api_key='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')
+client = OpenAI(api_key='')
 #Enter your own API Key here
 repetitions = 5
 #number of times the prompt is given to ChatGPT

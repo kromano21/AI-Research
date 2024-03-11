@@ -1,18 +1,18 @@
 from openai import OpenAI
 #You will have to install the openai module for this script to work using the "pip install openai" commands
-client = OpenAI(api_key='')
+client = OpenAI(api_key='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')
 #Enter your own API Key here. This is a string value, make sure your api_key is surrounded by quotation marks.
-repetitions = 100
+repetitions = 5
 #Enter the number of time you want your prompt sent to ChatGPT here. This is an integer value.
-user_input = ""
+user_input = "Hello"
 #Enter your prompt here. This is a string value, make sure your prompt is in quotes.
 
 def chat_with_gpt(prompt):
     try:
         response = client.chat.completions.create(
-            model="gpt-4",
+            model="gpt-3.5-turbo",
             #Input the model you are using here. Use "gpt-3.5-turbo" for 3.5 and "gpt-4" for 4.0
-            temperature=1.0,
+            #temperature=1.0,
             #This temperature parameter impacts the variance of responses. Valid Range: 0-2 where 0 is most determinastic and 2 is least determinastic. If you put a hashtag in front of it it will not be considered. 
             messages=[
                 {

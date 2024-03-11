@@ -11,3 +11,4 @@ Pie_Chart.py: Based on the previous script, this script will do the same thing b
 Percent_Analysis.py: Based on the Repeat_Research.py script, this script will do the same thing as before but also analyze data and print percentages in a new text file if tweaked correctly. 
 
 IQ_Test.py: This script takes a given number of questions for a test, asks it to ChatGPT a set number of times, and analyzes the data to print the percent correct for each question and print an average aggregate test score in a seperate text file. 
+

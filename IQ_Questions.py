@@ -4,8 +4,10 @@ client = OpenAI(api_key='')
 #Enter your own API Key here. This is a string value, make sure your api_key is surrounded by quotation marks.
 repetitions = 5
 #Enter the number of time you want your prompt sent to ChatGPT here. This is an integer value.
-user_input = "2, 4, 6, 8. What number logically follows this series?"
-#Enter your prompt here. This is a string value, make sure your prompt is in quotes.
+user_input = ["What is 3+3", "What is 1+1", "What is 2+2", "What is 4+4", "What is 5+5"]
+#List your questions in the above list, seperating each question by a comma. Each question is a string value.
+
+#You should only need to change the above values for it to work for you. However, if you want to change the ChatGPT model or include the temperature parameter then that is below in the chat_with_gpt function.
 
 def chat_with_gpt(prompt):
     try:
@@ -29,17 +31,19 @@ def chat_with_gpt(prompt):
         return None
 
 def main():
-    for i in range(repetitions):
-        response = chat_with_gpt(user_input)
-        if response:
-            data = open("Data.txt", 'a')
-            #saves responses to a text file
-            #The 'a' puts the file in append mode. In this mode any data will be added to the end of file.
-            data.write(response + "\n")
-            #"\n" adds a line break, putting each response on a new line"
-            data.close()
-        else:
-            print("Failed to get response from GPT")
+    for q in user_input:
+        for i in range(repetitions):
+            response = chat_with_gpt(q)
+            if response:
+                data = open("Data.txt", 'a')
+                #saves responses to a text file
+                #The 'a' puts the file in append mode. In this mode any data will be added to the end of file.
+                data.write("Question: " + q + '\n' + '\n')
+                data.write(response + "\n" + '\n')
+                #"\n" adds a line break, putting each response on a new line"
+                data.close()
+            else:
+                print("Failed to get response from GPT")
 
 main()
 #This is the call to main. Note that it sometimes takes a while for the script to complete as response times with the API vary.

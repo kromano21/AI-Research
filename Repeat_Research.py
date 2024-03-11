@@ -1,10 +1,10 @@
 from openai import OpenAI
 #You will have to install the openai module for this script to work using the "pip install openai" commands
-client = OpenAI(api_key='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')
+client = OpenAI(api_key='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')
 #Enter your own API Key here. This is a string value, make sure your api_key is surrounded by quotation marks.
 repetitions = 5
 #Enter the number of time you want your prompt sent to ChatGPT here. This is an integer value.
-user_input = "Hello"
+user_input = "2, 4, 6, 8. What number logically follows this series?"
 #Enter your prompt here. This is a string value, make sure your prompt is in quotes.
 
 def chat_with_gpt(prompt):
@@ -35,6 +35,7 @@ def main():
             data = open("Data.txt", 'a')
             #saves responses to a text file
             #The 'a' puts the file in append mode. In this mode any data will be added to the end of file.
+            data.write("Question: " + user_input + '\n' + '\n')
             data.write(response + "\n")
             #"\n" adds a line break, putting each response on a new line"
             data.close()
